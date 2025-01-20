@@ -28,8 +28,13 @@ public sealed class Member : AggregateRoot
         Guid id,
         Email email,
         FirstName firstName,
-        LastName lastName)
+        LastName lastName,
+        bool isEmailUnique)
     {
+        if (!isEmailUnique)
+        {
+            return null;
+        }
         var member = new Member(
             id,
             email,
